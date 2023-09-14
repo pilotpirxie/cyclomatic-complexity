@@ -35,7 +35,7 @@ describe("complexity", () => {
     ]);
   });
 
-  test("should return 1 for a function with a function call", () => {
+  test("should return 2 for a function with a function call", () => {
     const code = `function a() {
       if (true) {
         return 1;
@@ -45,7 +45,7 @@ describe("complexity", () => {
     const result = calculateComplexity(code);
     expect(result).toEqual([
       { name: "global", complexity: 0 },
-      { name: "a", complexity: 1 },
+      { name: "a", complexity: 2 },
     ]);
   });
 
@@ -73,8 +73,8 @@ describe("complexity", () => {
     const result = calculateComplexity(code);
     expect(result).toEqual([
       { name: "global", complexity: 0 },
-      { name: "anonymous", complexity: 1 },
-      { name: "anonymous", complexity: 1 },
+      { name: "anonymous", complexity: 3 },
+      { name: "anonymous", complexity: 3 },
     ]);
   });
 });

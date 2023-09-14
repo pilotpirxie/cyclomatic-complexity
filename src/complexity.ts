@@ -42,10 +42,7 @@ export function calculateComplexity(code: string): FunctionComplexity[] {
             const functionDetail = functionStack.find(
               (f) => f.name === functionName,
             );
-            if (functionDetail) {
-              functionDetail.complexity++;
-            } else if (!definedFunctions.has(functionName)) {
-              // Handle external function calls
+            if (!definedFunctions.has(functionName)) {
               functionStack[functionStack.length - 1].complexity++;
             }
           }
