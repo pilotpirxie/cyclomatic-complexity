@@ -125,7 +125,9 @@ program
             `Found ${errors.length} files with high complexity and ${warnings.length} files with moderate complexity`,
           );
 
-          process.exit(1);
+          if (errors.length > 0) {
+            process.exit(1);
+          }
         }
       }
     },
