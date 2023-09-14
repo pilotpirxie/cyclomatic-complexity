@@ -51,7 +51,29 @@ export function calculateComplexity(code: string): FunctionComplexity[] {
           }
           break;
 
-        // ... (keep the rest of your cases here)
+        case "IfStatement":
+        case "ForStatement":
+        case "WhileStatement":
+        case "DoWhileStatement":
+        case "SwitchCase":
+          functionStack[functionStack.length - 1].complexity++;
+          break;
+
+        case "ConditionalExpression":
+          functionStack[functionStack.length - 1].complexity++;
+          break;
+
+        case "LogicalExpression":
+          functionStack[functionStack.length - 1].complexity +=
+            node.operator === "&&" || node.operator === "||" ? 1 : 0;
+          break;
+
+        case "CatchClause":
+          functionStack[functionStack.length - 1].complexity++;
+          break;
+
+        default:
+          break;
       }
 
       for (const key in node) {
