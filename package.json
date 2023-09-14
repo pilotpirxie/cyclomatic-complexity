@@ -1,0 +1,17 @@
+{
+  "name": "cyclomatic-complexity",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/pilotpirxie/cyclomatic-complexity.git",
+  "author": "pilotpirxie <10637666+pilotpirxie@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/esprima": "^4.0.3",
+    "@types/node": "^20.6.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "esprima": "^4.0.1"
+  }
+}
