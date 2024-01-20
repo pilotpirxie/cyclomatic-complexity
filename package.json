@@ -1,7 +1,7 @@
 {
   "name": "cyclomatic-complexity",
   "description": "Tool for calculating cyclomatic complexity of a JavaScript and TypeScript code.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "./bin/index.js",
   "repository": "https://github.com/pilotpirxie/cyclomatic-complexity.git",
   "author": "pilotpirxie <10637666+pilotpirxie@users.noreply.github.com>",
@@ -14,7 +14,6 @@
     "@types/esprima": "^4.0.3",
     "@types/jest": "^29.5.4",
     "@types/node": "^18.17.15",
-    "glob": "^10.3.4",
     "jest": "^29.7.0",
     "prettier": "^3.0.3",
     "ts-jest": "^29.1.1"
@@ -23,6 +22,7 @@
     "@commander-js/extra-typings": "^11.0.0",
     "commander": "^11.0.0",
     "esprima": "^4.0.1",
+    "glob": "^10.3.10",
     "typescript": "^5.2.2"
   },
   "scripts": {
