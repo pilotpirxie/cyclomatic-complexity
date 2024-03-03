@@ -107,7 +107,7 @@ program
 
           for (const functionComplexity of file.functionComplexities) {
             console.log(
-              `  ${functionComplexity.name}: ${
+              `  [${functionComplexity.line}] ${functionComplexity.name}: ${
                 functionComplexity.complexity
               } (${getComplexityLevel(
                 functionComplexity.complexity,
