@@ -49,6 +49,20 @@ describe("complexity", () => {
     ]);
   });
 
+  test("should return 2 for an arrow function with a function call", () => {
+    const code = `const arrow = () => {
+      if (true) {
+        return 1;
+      }
+      return 2;
+    }`;
+    const result = calculateComplexity(code);
+    expect(result).toEqual([
+      { name: "global", complexity: 0, line: 0 },
+      { name: "anonymous: arrow", complexity: 2, line: 1 }
+    ]);
+  });
+
   test("should return 0 for an empty code block", () => {
     const code = ``;
     const result = calculateComplexity(code);
@@ -73,8 +87,8 @@ describe("complexity", () => {
     const result = calculateComplexity(code);
     expect(result).toEqual([
       { name: "global", complexity: 0, line: 0},
-      { name: "constructor", complexity: 3, line: 4 },
-      { name: "D", complexity: 3, line: 10 },
+      { name: "anonymous: constructor", complexity: 3, line: 4 },
+      { name: "anonymous: D", complexity: 3, line: 10 },
     ]);
   });
 
