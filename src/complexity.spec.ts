@@ -7,8 +7,8 @@ describe("complexity", () => {
     }`;
     const result = calculateComplexity(code);
     expect(result).toEqual([
-      { name: "global", complexity: 0 },
-      { name: "a", complexity: 1 },
+      { name: "global", complexity: 0, line: 0 },
+      { name: "a", complexity: 1, line: 1 },
     ]);
   });
 
@@ -18,8 +18,8 @@ describe("complexity", () => {
     }`;
     const result = calculateComplexity(code);
     expect(result).toEqual([
-      { name: "global", complexity: 0 },
-      { name: "a", complexity: 2 },
+      { name: "global", complexity: 0, line: 0 },
+      { name: "a", complexity: 2, line: 1 },
     ]);
   });
 
@@ -30,8 +30,8 @@ describe("complexity", () => {
     }`;
     const result = calculateComplexity(code);
     expect(result).toEqual([
-      { name: "global", complexity: 0 },
-      { name: "a", complexity: 3 },
+      { name: "global", complexity: 0, line: 0 },
+      { name: "a", complexity: 3, line: 1 },
     ]);
   });
 
@@ -44,15 +44,15 @@ describe("complexity", () => {
     }`;
     const result = calculateComplexity(code);
     expect(result).toEqual([
-      { name: "global", complexity: 0 },
-      { name: "a", complexity: 2 },
+      { name: "global", complexity: 0, line: 0 },
+      { name: "a", complexity: 2, line: 1 },
     ]);
   });
 
   test("should return 0 for an empty code block", () => {
     const code = ``;
     const result = calculateComplexity(code);
-    expect(result).toEqual([{ name: "global", complexity: 0 }]);
+    expect(result).toEqual([{ name: "global", complexity: 0, line: 0 }]);
   });
 
   test("should return 3 for a function with recursive function call", () => {
@@ -72,9 +72,13 @@ describe("complexity", () => {
     })();`;
     const result = calculateComplexity(code);
     expect(result).toEqual([
-      { name: "global", complexity: 0 },
-      { name: "anonymous", complexity: 3 },
-      { name: "anonymous", complexity: 3 },
+      { name: "global", complexity: 0, line: 0},
+      { name: "constructor", complexity: 3, line: 4 },
+      { name: "D", complexity: 3, line: 10 },
     ]);
   });
+
+
+  
+
 });
