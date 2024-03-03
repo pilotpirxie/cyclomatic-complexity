@@ -32,7 +32,7 @@ export function calculateComplexity(code: string): FunctionComplexity[] {
         case "FunctionExpression":
         case "ArrowFunctionExpression":
           definedFunctions.add(fatherName);
-          const newFunction = { name: fatherName, complexity: 1, line: node.loc.start.line };
+          const newFunction = { name: `anonymous: ${fatherName}`, complexity: 1, line: node.loc.start.line };
           functionStack.push(newFunction);
           functionComplexities.push(newFunction);
           break;
