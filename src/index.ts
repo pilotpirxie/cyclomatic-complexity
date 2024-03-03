@@ -97,37 +97,36 @@ program
       if (json) {
         console.log(JSON.stringify(filesComplexity, null, 2));
         return;
-      } else {
-        for (const file of sorted) {
+      }
+      for (const file of sorted) {
+        console.log(
+          `\n${file.file}: ${
+            file.complexitySum
+          } (${file.complexityLevel.toUpperCase()})`,
+        );
+
+        for (const functionComplexity of file.functionComplexities) {
           console.log(
-            `${file.file}: ${
-              file.complexitySum
-            } (${file.complexityLevel.toUpperCase()})`,
+            `  [line: ${functionComplexity.line}] ${functionComplexity.name}: ${
+              functionComplexity.complexity
+            } (${getComplexityLevel(
+              functionComplexity.complexity,
+            ).toUpperCase()})`,
           );
-
-          for (const functionComplexity of file.functionComplexities) {
-            console.log(
-              `  [line: ${functionComplexity.line}] ${functionComplexity.name}: ${
-                functionComplexity.complexity
-              } (${getComplexityLevel(
-                functionComplexity.complexity,
-              ).toUpperCase()})`,
-            );
-          }
         }
+      }
 
-        if (errors.length === 0 && warnings.length === 0) {
-          console.log("No issues found");
-        }
+      if (errors.length === 0 && warnings.length === 0) {
+        console.log("No issues found");
+      }
 
-        if (errors.length > 0 || warnings.length > 0) {
-          console.log(
-            `Found ${errors.length} files with high complexity and ${warnings.length} files with moderate complexity`,
-          );
+      if (errors.length > 0 || warnings.length > 0) {
+        console.log(
+          `Found ${errors.length} files with high complexity and ${warnings.length} files with moderate complexity`,
+        );
 
-          if (errors.length > 0) {
-            process.exit(1);
-          }
+        if (errors.length > 0) {
+          process.exit(1);
         }
       }
     },
