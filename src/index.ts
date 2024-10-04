@@ -43,7 +43,7 @@ program
       let filesComplexity: FileComplexity[] = [];
 
       for (const file of files) {
-        if (!file.endsWith(".ts") && !file.endsWith(".js")) {
+        if (!file.endsWith(".ts") && !file.endsWith(".js") && !file.endsWith(".jsx") && !file.endsWith(".tsx")) {
           continue;
         }
 
